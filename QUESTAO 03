@@ -1,0 +1,42 @@
+def bubble_sort_descending_custom(array):
+    size = len(array)
+    
+    # Itera pelo array para ordenar
+    for i in range(size):
+        # Flag para verificar se houve troca
+        swapped = False
+        # Itera peo array até o último elemento não ordenado
+        for j in range(size - 1):
+            # Se o elemento atual for menor que o proximo, troca-os
+            if array[j] < array[j + 1]:
+                # Troca de elementos
+                temp = array[j]
+                array[j] = array[j + 1]
+                array[j + 1] = temp
+                swapped = True
+        # Se nenhuma troca foi feita, o array está ordenado
+        if not swapped:
+            break
+
+def main():
+    # Solicita ao usuário a entrada de números inteiros
+    user_input = input("Digite números inteiros separados por espaços (por exemplo, '10 7 3 5'): ")
+    
+    try:
+        # Converte a string de entrada em uma lista de inteiros
+        numbers = list(map(int, user_input.split()))
+    except ValueError:
+        print("Erro: Certifique-se de que todos os valores inseridos são números inteiros.")
+        return
+    
+    # Exibe os números antes da ordenação
+    print("Antes da ordenação:", numbers)
+    
+    # Ordena os números em ordem decrescente
+    bubble_sort_descending_custom(numbers)
+    
+    # Exibe os números após a ordenação
+    print("Após a ordenação em ordem decrescente:", numbers)
+
+if __name__ == "__main__":
+    main()
