@@ -1,0 +1,28 @@
+def bubble_sort_custom(array):
+    length = len(array)
+    for i in range(length):
+        for j in range(0, length - i - 1):
+            if array[j] > array[j + 1]:
+                # Troca manual
+                temp = array[j]
+                array[j] = array[j + 1]
+                array[j + 1] = temp
+
+def main():
+    # Solicita ao usuário para inserir várias letras
+    letters_input = input("Insira várias letras sem espaços (por exemplo, 'zbacd'): ")
+    
+    # Transforma a string em uma lista de caracteres
+    letters_list = [char for char in letters_input]
+    
+    # Ordena as letras usando o Bubble Sort personalizado
+    bubble_sort_custom(letters_list)
+    
+    # Junta a lista ordenada em uma string
+    sorted_letters = ''.join(letters_list)
+    
+    # Mostra a string ordenada
+    print("Letras ordenadas:", sorted_letters)
+
+if __name__ == "__main__":
+    main()
