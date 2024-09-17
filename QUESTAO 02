@@ -1,0 +1,38 @@
+def optimized_bubble_sort(arr):
+    length = len(arr)
+    for i in range(length):
+        # Assumimos que a lista está ordenada
+        sorted = True
+        for j in range(length - 1 - i):
+            # Comparar elementos adjacentes
+            if arr[j] > arr[j + 1]:
+                # Trocar os elementos
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                # Se fizermos uma troca, então a lista não estava ordenada
+                sorted = False
+        # Se nenhuma troca foi feita, a lista está ordenada
+        if sorted:
+            break
+
+def maiin():
+    # Solicita ao usuário para inserir números inteiros separados por espaços
+    raw_input = input("Por favor, insira números inteiros separados por espaços (por exemplo, '3 1 4 1 5'): ")
+    
+ try:
+        # Divide a strring de entrada em uma lista de números inteiros
+        numbers = [int(x) for x in raw_input.split()]
+ except ValueError:
+        print("Erro: Certifique-se de que todos os inputs são números inteiros.")
+        return
+  
+   # Exibe os números antes da ordenaçao
+    print("Números antes da ordenação:", numbers)
+    
+    # Ordena a lista de números usando o Bubble Sort otimizado
+    optimized_bubble_sort(numbers)
+    
+    # Exibe os números após a ordenação
+    print("Números após a ordenação:", numbers)
+
+if __name__ == "__main__":
+    main()
